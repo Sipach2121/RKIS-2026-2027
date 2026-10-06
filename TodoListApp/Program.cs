@@ -45,6 +45,16 @@ while (true)
     else if (input.StartsWith("add "))
     {
         string task = input.Substring(4).Trim('"');
+        if (todoCount >= todos.Length)
+        {
+            string[] newTodos = new string[todos.Length * 2];
+            for (int i = 0; i < todos.Length; i++)
+            {
+                newTodos[i] = todos[i];
+            }
+            todos = newTodos;
+            Console.WriteLine("массив расширен");
+        }
         todos[todoCount] = task;
         todoCount++;
         Console.WriteLine($"Задача добавлена: {task}");

@@ -29,8 +29,43 @@ while (true)
         Console.WriteLine("завершение программы");
         break;
     }
+    else if (input == "help")
+    {
+        Console.WriteLine("Доступные команды:");
+        Console.WriteLine("help - список команд");
+        Console.WriteLine("profile - данные пользователя");
+        Console.WriteLine("add 'текст' - добавить задачу");
+        Console.WriteLine("view - показывать задачи");
+        Console.WriteLine("exit - выход");
+    }
+    else if (input == "profile")
+    {
+        Console.WriteLine($"{name1} {name2}, {year}");
+    }
+    else if (input.StartsWith("add "))
+    {
+        string task = input.Substring(4).Trim('"');
+        todos[todoCount] = task;
+        todoCount++;
+        Console.WriteLine($"Задача добавлена: {task}");
+    }
+    else if (input == "view")
+    {
+        bool hasTasks = false;
+        for (int i = 0; i < todos.Length; i++)
+        {
+            if (!string.IsNullOrEmpty(todos[i]))
+            {
+                Console.WriteLine($"[{i +1}] {todos[i]}");
+                hasTasks = true;
+            }
+        }
+        if (!hasTasks) Console.WriteLine("Список задач пуст");
+    }
     else
     {
-        Console.WriteLine("Неизвестная команда. Введите help")
+        Console.WriteLine("Неизвестная команда.Введите help");
     }
 }
+    
+     

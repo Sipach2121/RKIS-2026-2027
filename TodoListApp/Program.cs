@@ -19,3 +19,18 @@ Console.WriteLine();
 //Практическая работа №3
 string[] todos = new string[2];
 int todoCount = 0;
+
+while (true)
+{
+    Console.Write("> ");
+    string input = Console.ReadLine();
+    if (input == "exit")
+    {
+        Console.WriteLine("завершение программы");
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Неизвестная команда. Введите help")
+    }
+}
